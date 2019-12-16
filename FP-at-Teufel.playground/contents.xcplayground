@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<playground version='6.0' target-platform='ios' display-mode='raw'>
+    <pages>
+        <page name='01 - Welcome'/>
+        <page name='02 - What we do?'/>
+        <page name='03 - Challenges'/>
+        <page name='04 - Topics'/>
+        <page name='05 - Pure functions'/>
+        <page name='06 - Immutability'/>
+        <page name='07 - Declarative Syntax'/>
+        <page name='08 - Composition'/>
+        <page name='09 - Strongly-typed'/>
+        <page name='10 - Lazyness and Explicitness'/>
+        <page name='11 - Tagged'/>
+        <page name='12 - Optics'/>
+        <page name='13 - Algebraic Data Types'/>
+        <page name='14'/>
+        <page name='15'/>
+        <page name='16'/>
+    </pages>
+</playground>
