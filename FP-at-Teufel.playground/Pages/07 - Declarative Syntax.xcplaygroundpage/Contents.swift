@@ -21,7 +21,7 @@ zip(readBluetoothCharacteristic1(), readBluetoothCharacteristic2())
     .map(zip)
     .errorOnNil(BluetoothError())
     .map { "\($0).\($1)" }
-    .eraseToPromise()
+    .receive(on: .main)
     .analysis(
         onSuccess: { fullVersion in
             print("Full version: \(fullVersion)")

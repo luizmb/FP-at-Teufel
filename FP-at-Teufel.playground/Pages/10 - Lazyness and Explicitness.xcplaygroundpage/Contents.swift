@@ -10,7 +10,7 @@ import Foundation
 func downloadAndInstall(url: URL, folder: URL) -> Promise<Void, Error> {
     let promise = download(url: url).flatMap { file in
         install(file: file, to: folder)
-    }.eraseToPromise()
+    }
 
     // DOWNLOAD DOESN'T START HERE, ALTHOUGH THE PROMISE IS CREATED
 
