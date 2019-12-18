@@ -1,0 +1,17 @@
+Lazyness and Explicitness about side-effects: Be very explicit when something runs, and postpone this as much as you can, gathering all you need from different layers of your app, and once you have everything and you're in the layer you allow side-effects, call .run or some very explicit function showing that something is about to start.
+
+```
+func downloadAndInstall(url: URL, folder: URL) -> Promise<Void, Error> {
+    let promise = download(url).flatMap { data in install(data: data, to: folder) }
+    // DOWNLOAD DOESN'T START HERE, ALTHOUGH THE PROMISE IS CREATED
+    return promise
+}
+
+// in another part of the app
+downloadAndInstall(url: myUrl, folder: folderUrl)
+    .run { result in
+        // WE FINALLY RUN!! IT'S OBVIOUS THAT SIDE-EFFECTS HAVE BEEN STARTED!
+        print(result)
+    }
+
+```

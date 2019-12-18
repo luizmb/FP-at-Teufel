@@ -1,8 +1,7 @@
 /*:
  [Previous](@previous) | [Next](@next)
 
-
- ## What we do?
+ ## What do we do?
 
  * Smart Loudspeaker, Bluetooth speakers and headphones
  * Consumer audio products

@@ -6,8 +6,10 @@
  
  
  # How Functional Programming has helped us
- 
- 
+
+ Xcode Playgrounds available at [https://github.com/luizmb/FP-at-Teufel](https://github.com/luizmb/FP-at-Teufel)*
+
+
  ![Lautsprecher Teufel](Teufel.png)
  
  ---
@@ -20,6 +22,10 @@
  ## Thomas Mellenthin ###
  - Twitter: [@dysternis](https://www.twitter.com/dysternis)
  - GitHub: [melle](https://www.github.com/melle)
- 
+
+ ---
+
+ * please also check the Resources folder for each playground page, where you will find the presentation notes
+
  [Next](@next)
  */

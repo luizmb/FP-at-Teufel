@@ -13,6 +13,7 @@
  - Tagged
  - Optics
  - Algebraic Data Types
+ - Focus on Data Structures
 
  [Previous](@previous) | [Next](@next)
  */

@@ -1,0 +1,9 @@
+And how FP can help?
+
+Here we have a list with some of the main topics that have helped us to accomplish our goals. It's not a comprehensive
+list, but it's what we've been using successfully so far.
+
+We won't have time to go through all of them tonight, but this Xcode Playground is already available for you to download
+and includes resources with Presentation notes for each playground page, even those that won't be seen in details tonight.
+
+So let's start, shall we?

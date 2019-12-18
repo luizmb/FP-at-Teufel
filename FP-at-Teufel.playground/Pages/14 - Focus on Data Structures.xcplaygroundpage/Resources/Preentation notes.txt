@@ -1,0 +1,28 @@
+We spoke a lot about Data Structures so far. This is the building block of FP. These data structures are small and very
+specialised containers that are created to solve one, and only one problem. The problem should be solved very well with
+the minimum amount of code possible. This must be VERY well tested and usually follow the mathematical form, through
+operators that are very well known in other functional languages. Swift gives us some of these structures, like Optional,
+Result and Array, focused in solving "nullability", error handling and collections respectively.
+
+For example, we don't rewrite array every time you have a collection of clients, collection of invoices, collection of
+products, etc. You reuse the same Array<T> and pick a different generic parameter (polymorphism through generics). Ok.
+So why we reinvent the wheel every time for callbacks? Dependency Injection? Publisher/Subscriber? More code means more
+tests, or more bugs. Or sometimes both.
+
+Currently we have some in-house structures like Promises and Event Streams that we are looking forward to convert to
+Combine counterparts, as Apple introduced more of these data-structures in 2019, but while this is not possible to target
+iOS 13, our implementations are helping us to tackle all the issues about async programming we've mentioned. Reader helps
+with dependency injection and Writer allows us to take all side-effects we need to execute, and return as a closure in
+the return. So, technically, the function is pure, doesn't EXECUTE side-effects. So you can test, you can compose, you
+can map or transform.
+
+Thanks to these tools, any function can become pure, composable, synchronous, testable. You push your side-effects to
+the boundaries of your app and isolate them from the logic, and all of this writing less code.
+
+These data-structures offer some useful operators, such as these. It's easy to understand what these operators do with
+Arrays. Use your intuition to think what they would mean for the other data structures we mentioned before. This is a
+very good homework for you today.
+
+TODO:
+- Promises curry story?
+- What side-effect each monad wants to solve

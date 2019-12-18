@@ -1,0 +1,17 @@
+Tagged: A User ID that is a String, and an Invoice that is a String, could be mistakenly swapped. Use Tagged versions of those to avoid this problem:
+
+```
+struct User {
+    let id: Tagged<User, String>
+    let name: String
+}
+
+struct Invoice {
+    let id: Tagged<Invoice, String>
+    let date: Date
+}
+
+func getInvoice(id: Tagged<Invoice, String>) -> Invoice? {
+     // ...
+}
+```

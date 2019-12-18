@@ -1,0 +1,35 @@
+Composition: this is the most important one, but it's only possible with pure functions. If you have only pure functions, lots of rules simply apply automatically.  (A) -> B >>> (B) -> C always succeed as (A) -> C, no need to prove mathematics. There are lots of types of composition and those FP data-structures have their own set of compositions, this magic also works there. So if you write and test well your data-structures, you can compose in many many different ways and expect them to work regardless of the business logic. This not only deletes a lot of code, deletes a lot of tests.
+
+```
+func compose<A, B, C>(_ aToB: (A) -> B, _ bToC: (B) -> C) -> (A) -> C {
+    return { a in
+        let b = aToB(a)
+        let c = bToC(b)
+    }
+}
+
+let squareRootAndStringify = compose(sqrt, String.init)
+```
+
+Or if you like custom operators:
+```
+let squareRootAndStringify = sqrt >>> String.init
+```
+
+```
+let downloadAndInstall = compose(download, install)
+// or
+let downloadAndInstall = download >=> install
+```
+
+But download and install run side-effects?!?!
+
+```
+func compose<A, B, C>(_ aToB: @escaping (A) -> Promise<B, Error>, _ bToC: @escaping (B) -> Promise<C, Error>) -> (A) -> Promise<C> { ... }
+```
+
+This is precisely flatMap!
+
+```
+let downloadAndInstall = download(url).flatMap(install)
+```

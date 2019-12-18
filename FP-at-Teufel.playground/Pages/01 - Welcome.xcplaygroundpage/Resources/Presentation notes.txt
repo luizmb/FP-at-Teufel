@@ -1,0 +1,3 @@
+How Functional Programming has helped us
+
+We'll be talking about how functional programming has helped us to develop better apps at Lautsprecher Teufel.
