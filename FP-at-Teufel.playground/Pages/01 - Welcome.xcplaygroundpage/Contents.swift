@@ -7,11 +7,21 @@
  
  # How Functional Programming has helped us
 
- Xcode Playgrounds available at [https://github.com/luizmb/FP-at-Teufel](https://github.com/luizmb/FP-at-Teufel)*
+ Xcode Playgrounds available at [https://github.com/luizmb/FP-at-Teufel](https://github.com/luizmb/FP-at-Teufel) *
+
+ &nbsp;
+ &nbsp;
+ &nbsp;
+ &nbsp;
 
 
  ![Lautsprecher Teufel](Teufel.png)
- 
+
+ &nbsp;
+ &nbsp;
+ &nbsp;
+ &nbsp;
+
  ---
  
  ## Luiz R. M. Barbosa ###
@@ -25,7 +35,7 @@
 
  ---
 
- * please also check the Resources folder for each playground page, where you will find the presentation notes
+ - note: * *please also check the Resources folder for each playground page, where you will find the presentation notes*
 
  [Next](@next)
  */
