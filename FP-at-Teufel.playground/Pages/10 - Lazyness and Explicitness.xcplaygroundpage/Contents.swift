@@ -7,6 +7,8 @@
  */
 import Foundation
 
+// EFFECT OR SIDE-EFFECT???
+
 func downloadAndInstall(url: URL, folder: URL) -> Promise<Void, Error> {
     let promise = download(url: url).flatMap { file in
         install(file: file, to: folder)
@@ -26,6 +28,8 @@ let cancellable = operation
         // WE FINALLY RUN!! IT'S OBVIOUS THAT SIDE-EFFECTS HAVE BEEN STARTED!
         print(result)
     }
+
+// COMBINE Future
 
 /*:
  [Previous](@previous) | [Next](@next)

@@ -1,9 +1,15 @@
 import Combine
 import Foundation
 
-public func readBluetoothCharacteristic1() -> Promise<Data, Error> {
-    .create(success: Data([0x30, 0x32]))
-}
-public func readBluetoothCharacteristic2() -> Promise<Data, Error> {
-    .create(success: Data([0x31, 0x38]))
+public let majorVersionCharacteristicId = "a"
+public let minorVersionCharacteristicId = "b"
+
+public func readBluetoothCharacteristic(id: String) -> Promise<Data, Error> {
+    if id == "a" {
+        return .create(success: Data([0x30, 0x32]))
+    } else if id == "b" {
+        return .create(success: Data([0x31, 0x38]))
+    }
+
+    return .create(failure: NSError(domain: "Wrong Characteristic ID", code: -1, userInfo: nil))
 }

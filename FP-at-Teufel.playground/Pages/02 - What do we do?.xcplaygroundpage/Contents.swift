@@ -3,7 +3,7 @@
 
  ## What do we do?
 
- * Smart Loudspeaker, Bluetooth speakers and headphones
+ * Smart Loudspeaker, Bluetooth speakers, headphones, TV soundbards and home cinema devices
  * Consumer audio products
  * Apps to remote control those devices
      - Browsing online music services
@@ -13,11 +13,7 @@
      - Favourites, playlists, alarm clock
 
 
- ![AppStore Screenshot 01](AppStoreScreenshot01.png)
- ![AppStore Screenshot 02](AppStoreScreenshot02.png)
- ![AppStore Screenshot 03](AppStoreScreenshot03.png)
- ![AppStore Screenshot 04](AppStoreScreenshot04.png)
- ![AppStore Screenshot 05](AppStoreScreenshot05.png)
+ ![AppStore Screenshots](AppStoreScreenshots.png width="1500" height="604")
 
  [Previous](@previous) | [Next](@next)
  */
