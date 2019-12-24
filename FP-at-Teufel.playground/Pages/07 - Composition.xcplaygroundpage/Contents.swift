@@ -2,22 +2,31 @@
  [Previous](@previous) | [Next](@next)
 
  ### Composition
+ Why?
+ - Composing pure functions returns pure functions
+ - Every pure function is a building block, composition is the glue
+ - Always succeds, no need to be tested
+ - Generic and reusable
 
- `(A) -> B >>> (B) -> C`    ALWAYS* succeeds as    `(A) -> C`
+ How?
+ - Only work with pure functions
+ - Functions (or HOF) that combine pure functions and their effects
+ - Operators also can be used, although it can be arcane for new members of the team
 
- \* for pure functions
+ - - -
 
+ `(A) -> B >>> (B) -> C`    __ALWAYS*__ succeeds as    `(A) -> C`
 
- This is the most important one, but it's only possible with pure functions. If you have only pure functions, lots of rules simply apply automatically.  (A) -> B >>> (B) -> C always succeed as (A) -> C, no need to prove mathematics. There are lots of types of composition and those FP data-structures have their own set of compositions, this magic also works there. So if you write and test well your data-structures, you can compose in many many different ways and expect them to work regardless of the business logic. This not only deletes a lot of code, deletes a lot of tests.
-
+ _\* for pure functions_
+ */
+ import Foundation
+/*:
  ```
  func compose<A, B, C>(_ aToB: (A) -> B,
                        _ bToC: (B) -> C
                        ) -> (A) -> C
  ```
  */
-import Foundation
-
 let squareRootAndStringify = compose(sqrt, stringify)
 squareRootAndStringify(4)
 /*:
@@ -41,9 +50,19 @@ let downloadAndInstallOther = download >=> install
                        ) -> (A) -> Promise<C, Error>
  ```
  */
-
 //: This is precisely flatMap!
-let downloadAndInstallUsingFlatMap = download(url: someURL).flatMap(install)
+// flatMap              lifts     context of A into a (flat) context of B
+// *******              *****     ***************************************
+// A -> Array<B>          ->      Array<A> -> Array<B>
+// A -> Optional<B>       ->      Optional<A> -> Optional<B>
+// A -> Result<B, E>      ->      Result<A, E> -> Result<B, E>
+// A -> Promise<B, E>     ->      Promise<A, E> -> Promise<B, E>
+
+let downloadAndInstallUsingFlatMap = { (url: URL) -> Promise<Void, Error> in
+    download(url: url).flatMap(install)
+}
+
+downloadAndInstallUsingFlatMap(someURL)
 /*:
  [Previous](@previous) | [Next](@next)
  */

@@ -12,6 +12,7 @@
  - Structs, Enums over Classes
  - Let over Var
  - Calculating new object over setters
+ - Map over forEach
 
  - - -
   */

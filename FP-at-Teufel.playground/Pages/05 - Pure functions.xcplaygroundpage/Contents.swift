@@ -11,7 +11,7 @@
  How?
  - Try them as free functions
  - Be aware of the inits and singletons
- - Inject everything
+ - Either inject dependencies or return effects
  - Avoid `Void`
 
  - - -
@@ -25,10 +25,20 @@ func addFavorite(repository: () -> Repository,
     notImplemented()
 }
 //: - - -
-func addFavorite(repository: () -> Repository,
-                 now: () -> Date,
-                 favorite: Favorite)
+func addFavoriteAsync(repository: () -> Repository,
+                      now: () -> Date,
+                      favorite: Favorite)
 -> Promise<Favorite, Error> {
+    // ... Implementation
+    notImplemented()
+}
+//: - - -
+struct Effect<Dependencies, EffectReturn, PureReturn> {
+    // Not Implemented
+}
+
+func addFavoriteEffect(favorite: Favorite)
+-> Effect<(Date, Repository), Void, Promise<Favorite, Error>> {
     // ... Implementation
     notImplemented()
 }

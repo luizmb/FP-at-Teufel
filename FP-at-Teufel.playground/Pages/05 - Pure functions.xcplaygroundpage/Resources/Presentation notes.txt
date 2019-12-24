@@ -10,7 +10,8 @@ An exercise is to make a function static or free in the global scope, so you ass
 object fields. Be extra careful with singletons, Date() or Calendar constructions, or any construction actually, only
 other pure constructions and calls should be allowed.
 
-Anything else should be injected from the outside.
+Anything else should be injected from the outside, or even better, the effects should be returned as a value
+representation.
 
 Last but not least, functions that take no arguments, or functions that return Void should immediately raise a red flag
 in your Functional Programming mind. Pure functions usually take parameters, calculate something and returns the
@@ -25,4 +26,14 @@ function can also be considered pure.
 The async version of it has very similar signature but it returns Promise of either Favorite or Error, very similar
 data type to represent a failable and async operation.
 
-We will speak more about there data types later.
+We will speak more about these data types later.
+
+The last example is the most powerful. The function won't take any dependencies anymore, and won't run any side-effects.
+Instead, the return type of this functions consists in a value that represents both, the effect and the expected return,
+which means that this function remains pure and exports the effect to its caller. For keeping the caller also pure, this
+also exports the effect to its caller. You keep doing this to move all the effects off your core, toward the boundaries
+of your system. In this very naive implementation, `Effect` is a struct generic over 3 parameters: the dependencies it
+needs to run the effect, the return type of this effect, and the pure return of the original function, which would be
+the return in case the function didn't have to declare the effect.
+
+We will speak more about that soon.
