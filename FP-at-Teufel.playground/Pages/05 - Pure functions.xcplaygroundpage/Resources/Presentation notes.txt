@@ -4,6 +4,8 @@ this is definitely the starting point. Grab your functions one by one and extrac
 Side-effects are not only mutation in global scope, also reading from global scope is a side-effect. For example, Date()
 is an implicit side-effect, which builds something completely different every call. Same for random numbers.
 
+You want to do this before anything else because most of the other topics depend on pure functions.
+
 An exercise is to make a function static or free in the global scope, so you assert they don't read or write from its
 object fields. Be extra careful with singletons, Date() or Calendar constructions, or any construction actually, only
 other pure constructions and calls should be allowed.

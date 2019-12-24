@@ -45,6 +45,23 @@ version(major: readBluetoothCharacteristic(id: majorVersionCharacteristicId),
         }
     )
 
+//func firstTwoAlbums(artist: Artist) -> ArraySlice<Album> {
+//    return artist.albums.prefix(2)
+//}
+//
+//firstTwoAlbums(artist: ledZeppelin)
+//
+//func countSongsWithS(artist: Artist) -> Int {
+//    artist
+//        .albums
+//        .lazy
+//        .flatMap { $0.songs }
+//        .filter { $0.name.lowercased().hasPrefix("s") }
+//        .count
+//}
+//
+//countSongsWithS(artist: ledZeppelin)
+
 /*:
  [Previous](@previous) | [Next](@next)
  */

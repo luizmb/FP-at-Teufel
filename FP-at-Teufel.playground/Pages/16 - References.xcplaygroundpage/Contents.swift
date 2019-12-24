@@ -3,10 +3,12 @@
 
  ### References
 
+ By authors:
+
  - Point-free (Stephen Celis / Brandon Williams)
-    - [https://www.pointfree.co](https://www.pointfree.co)
-    - [http://2018.funswiftconf.com](http://2018.funswiftconf.com)
-    - [https://www.fewbutripe.com](https://www.fewbutripe.com)
+    - [Point-free](https://www.pointfree.co)
+    - [Functional Swift Conference](http://funswiftconf.com/)
+    - [Brandon Williams' Few, but ripe](https://www.fewbutripe.com)
  - Jasdev Singh
     - [https://jasdev.me](https://jasdev.me)
  - Yasuhiro Inami
@@ -33,8 +35,19 @@
  - Thomas Mellenthin
     - [https://www.github.com/melle](https://www.github.com/melle)
     - [https://www.twitter.com/dysternis](https://www.twitter.com/dysternis)
- */
 
+ - - -
+ By topic:
+ - Pure functions:
+     - [Point-free #1](https://www.pointfree.co/episodes/ep1-functions)
+     - [Point-free #2](https://www.pointfree.co/episodes/ep2-side-effects)
+     - [Functional Swift Conf - The Functional Way by Natasha Murashev](https://youtu.be/tohEJSq9gds)
+     - [Channel 9 - FP with Erik Meijer](https://channel9.msdn.com/shows/Going+Deep/Erik-Meijer-Functional-Programming/)
+ - Immutability:
+    - [Functional Christmas - Immutable by default by Bendik Solheim](https://functional.christmas/2019/3)
+    - [Functional Swift Conf - Enemy of the State by Justin Spahr-Summers](https://youtu.be/7AqXBuJOJkY)
+    - [JSConf - Immutable data structures by Anjana Vakil](https://youtu.be/Wo0qiGPSV-s))
+ */
 /*:
  [Previous](@previous) | [Next](@next)
  */

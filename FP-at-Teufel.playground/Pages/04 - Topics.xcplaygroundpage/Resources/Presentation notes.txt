@@ -12,6 +12,9 @@ So, start slow, with the simple topics as you gain more confidence and learn mor
 nothing, you can gradually benefit from it and it was precisely what we've been doing. I'm pretty sure that one year
 from now, this list will be longer and our goals will be bolder.
 
+We also didn't invent any of those things, people very smart, from Computer Science or not, invented (or mathematically
+discovered) them and we only learn them as useful and powerful tools they are.
+
 We won't have time to go through all of them tonight, but this Xcode Playground is already available for you to download
 and includes resources with Presentation notes for each playground page, even those that won't be seen in details tonight.
 

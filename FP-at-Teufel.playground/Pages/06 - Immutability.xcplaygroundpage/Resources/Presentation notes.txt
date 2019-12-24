@@ -1,12 +1,18 @@
-Immutability: prefer structs and let, non-mutating functions. Prefer calculating and returning a new object over changing the current one. Eventually, mutation is needed, you need to keep you state alive. Put all the state together as much as you can. Be in a ViewController, in a Presenter, ViewModel or whatever architecture you use. Even better if you have the state of your whole app in a single place, but this is not always possible. Mutate it only from a single function, under complete surveillance. This is your consistency checker.
+Embrace immutability. It allows us to run code in isolation and confidence that nothing else is affected by this code,
+it also allows us to avoid concurrency problems and race conditions. Using value types also helps preventing memory
+leaks. Finally, when data is immutable we stop wanting to store this state as a source-of-truth, instead, we want to
+keep this information in a constant flow of transformation.
 
-```
-struct Album {
-    let name: String
-    let songs: [Song]
+Prefer value types - structs or enums - over classes. Whenever possible, use `let` instead of `var`. And also prefer
+calculating new object over using setters or assignment. That way, you don't reuse anything, also discard it and create
+a new one, so things are never still, but they are always moving.
 
-    func addingSong(_ song: Song) -> Album {
-        return Album.init(name: name, songs: songs + [song])
-    }
-}
-```
+In real world apps we eventually need State and we need mutation. In that case, group as much state as you can and make
+all these parts to act as one, mutate as one, from a single function and under complete surveillance, this is your
+consistency checker.
+
+Even better if you have the state of your app in a single place, for the whole app, being mutated only by a single
+function that guarantees thread-safety and consistency.
+
+Make sure to distinguish between State and derived state, being the first one an unique piece of information and the
+second something that can be easily and cheapily calculated.

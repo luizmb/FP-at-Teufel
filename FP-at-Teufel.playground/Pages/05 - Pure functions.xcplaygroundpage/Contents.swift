@@ -6,6 +6,7 @@
  Why?
  - Most obvious FP trait
  - First step toward FP
+ - Required for all the other steps
 
  How?
  - Try them as free functions

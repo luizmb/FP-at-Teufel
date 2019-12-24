@@ -1,5 +1,3 @@
 import Foundation
 
-public struct Song {
-    public init() { }
-}
+public let ledZeppelin = fetchArtist(id: 3)!

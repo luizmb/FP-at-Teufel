@@ -21,9 +21,9 @@
  - flatMap
  - zip
  - traverse
- - fold / analysis
+ - reduce / fold / analysis
  - lift
-
+ - higher-order operators
  */
 
 /*:
