@@ -27,11 +27,9 @@
     - [Point-free #42](https://www.pointfree.co/episodes/ep42-the-many-faces-of-flat-map-part-1)
     - [Point-free • Swift Overture library](https://github.com/pointfreeco/swift-overture)
     - [Jasdev Singh • Operator Etymology](https://jasdev.me/operators)
- - Algebraic Data Types:
-    - [Point-free #4](https://www.pointfree.co/episodes/ep4-algebraic-data-types)
-    - [Yasuhiro Inami • Algebraic Data Type in Swift (at Tokyo iOS Meetup)](https://speakerdeck.com/inamiy/algebraic-data-type-in-swift)
-    - [Elviro Rocca • ADT for contextual & conditional computation](https://broomburgo.github.io/fun-ios/post/algebraic-datatypes-for-contextual-and-conditional-computation/)
-    - [Brandon Williams • Proof in Functions](https://www.fewbutripe.com/swift/math/2015/01/06/proof-in-functions.html))
+ - Lazyness and Explicitness
+    - [Gary Bernhardt - Boundaries](https://www.destroyallsoftware.com/talks/boundaries)
+    - [Gary Bernhardt - Functional Core, Imperative Shell](https://www.destroyallsoftware.com/screencasts/catalog/functional-core-imperative-shell)
  - Declarative Syntax:
     - [WWDC 2019/216 • SwiftUI Essentials](https://developer.apple.com/videos/play/wwdc2019/216/)
     - [Brandon Williams • Composable HTML Views in Swift](https://www.fewbutripe.com/swift/html/dsl/2017/06/29/composable-html-views-in-swift.html)
@@ -42,6 +40,11 @@
     - [Stephen Celis • Composable Setters (at Functional Swift Conf)](https://youtu.be/I23AC09YnHo)
     - [Elviro Rocca • Lenses and Prisms in Swift: a pragmatic approach](https://broomburgo.github.io/fun-ios/post/lenses-and-prisms-in-swift-a-pragmatic-approach/)
     - [Point-free #6](https://www.pointfree.co/episodes/ep6-functional-setters)
+ - Algebraic Data Types:
+    - [Point-free #4](https://www.pointfree.co/episodes/ep4-algebraic-data-types)
+    - [Yasuhiro Inami • Algebraic Data Type in Swift (at Tokyo iOS Meetup)](https://speakerdeck.com/inamiy/algebraic-data-type-in-swift)
+    - [Elviro Rocca • ADT for contextual & conditional computation](https://broomburgo.github.io/fun-ios/post/algebraic-datatypes-for-contextual-and-conditional-computation/)
+    - [Brandon Williams • Proof in Functions](https://www.fewbutripe.com/swift/math/2015/01/06/proof-in-functions.html)
  - Focus on Data Structures:
     - [Elmar Kretzer • Reader & Coreader for Dependency Injection (at Functional Swift Conf)](https://youtu.be/oPyqKETp3ks)
  - Other advanced topics:

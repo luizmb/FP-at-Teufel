@@ -139,11 +139,11 @@ extension Promise {
                     onSuccess: { value in
                         nextPromise(value)
                             .run(completionNewT)
-                            .dispose(by: cancellables)
+                            .disposed(by: cancellables)
                     },
                     onFailure: { error in completionNewT(.failure(error)) }
                 )
-            }.dispose(by: cancellables)
+            }.disposed(by: cancellables)
 
             return cancellables
         }
@@ -162,13 +162,13 @@ public func zip<A, B>(_ lhs: Promise<A, Error>, _ rhs: Promise<B, Error>) -> Pro
         lhs.run {
             resultA = $0
             group.leave()
-        }.dispose(by: cancellableGroup)
+        }.disposed(by: cancellableGroup)
 
         group.enter()
         rhs.run {
             resultB = $0
             group.leave()
-        }.dispose(by: cancellableGroup)
+        }.disposed(by: cancellableGroup)
 
         group.notify(queue: .main) {
             completion(zip(resultA!, resultB!))
@@ -208,7 +208,7 @@ public class CancellableGroup: Cancellable {
 }
 
 extension Cancellable {
-    public func dispose(by group: CancellableGroup) {
+    public func disposed(by group: CancellableGroup) {
         group.append(self)
     }
 }
@@ -255,6 +255,34 @@ extension Promise {
                          onFailure: @escaping (Failure) -> Void) -> Cancellable {
         run { result in
             result.analysis(onSuccess: onSuccess, onFailure: onFailure)
+        }
+    }
+}
+
+extension Promise {
+    public func catchError<NewFailure>(_ onFailure: @escaping (Failure) -> Promise<Success, NewFailure>) -> Promise<Success, NewFailure> {
+        Promise<Success, NewFailure> { completion in
+            let cancellables = CancellableGroup()
+
+            self.run { [cancellables] result in
+                guard !cancellables.isCancelled else { return }
+
+                switch result {
+                case let .success(value): completion(.success(value))
+                case let .failure(error):
+                    onFailure(error).run(completion).disposed(by: cancellables)
+                }
+            }.disposed(by: cancellables)
+
+            return cancellables
+        }
+    }
+}
+
+extension Promise where Failure == Never {
+    public func bind<Root>(to keyPath: ReferenceWritableKeyPath<Root, Success?>, on object: Root) -> Cancellable {
+        run { result in
+            object[keyPath: keyPath] = try! result.get()
         }
     }
 }

@@ -7,7 +7,7 @@
  1.   [Pure functions](05%20-%20Pure%20functions)
  2.   [Immutability](06%20-%20Immutability)
  3.   [Composition](07%20-%20Composition)
- 4.   [Lazyness and Explicitness about side-effects](08%20-%20Lazyness%20and%20Explicitness)
+ 4.   [Lazyness and Explicitness](08%20-%20Lazyness%20and%20Explicitness)
  5.   [Declarative syntax](09%20-%20Declarative%20Syntax)
  6.   [(Very) Strongly-typed](10%20-%20Strongly-typed)
  7.   [Tagged](11%20-%20Tagged)

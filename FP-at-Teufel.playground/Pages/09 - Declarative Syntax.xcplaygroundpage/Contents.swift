@@ -3,25 +3,22 @@
 
  ### Declarative syntax
 
- is not only code style, it may start as such but evolves to a new way of thinking about your code as a set of rules instead of a list of steps. As you do that and force yourself to use only pure functions and composition, the rules will become consistent regardless of the order things happen. Changing from imperative to declarative is overwhelming, our minds are accustomed to follow recipes, instructions, linearly. But after some time this will become more natural and even easier than imperative.
+ Why?
+ - It's not about code style, it's a tool that helps separating definition from execution
+ - It enforces lazyness
+ - It enforces consistency, because a set of rules is more consistent than a set of steps
+ - Going toward DSL will unlock powerful things like multiple interpreters for same definition, as seen in SwiftUI
 
- Effects as values — decoupling them from execution
-
- Gary Bernhardt - Functional Core, Imperative Shell (
-    https://www.destroyallsoftware.com/screencasts/catalog/functional-core-imperative-shell,
-    https://www.destroyallsoftware.com/talks/boundaries
- )
-
- DSL when possible: Separate execution from declaration completely
+ How?
+ - Learn composition and data type operations
+ - Avoid imperative programming and implicit state, that leads to inconsistency
+ - Experiment with DSL, trying to create your own language that won't run anything, only describe it
+ - - -
  */
+import PlaygroundSupport
+import UIKit
 
-import Foundation
-
-public struct BluetoothError: Error {
-    public init() { }
-}
-
-func version(major: Promise<Data, Error>, minor: Promise<Data, Error>) -> Promise<String, Error> {
+func readVersion(major: Promise<Data, Error>, minor: Promise<Data, Error>) -> Promise<String, Error> {
     zip(major, minor)
         .map { characteristicLeft, characteristicRight -> (String?, String?) in
             let majorMaybe: String? = String(data: characteristicLeft, encoding: .utf8)
@@ -29,38 +26,33 @@ func version(major: Promise<Data, Error>, minor: Promise<Data, Error>) -> Promis
             return (majorMaybe, minorMaybe)
         }
         .map(zip)
-        .errorOnNil(BluetoothError())
+        .errorOnNil(ReadVersionError())
         .map { "\($0).\($1)" }
 }
 
-version(major: readBluetoothCharacteristic(id: majorVersionCharacteristicId),
-        minor: readBluetoothCharacteristic(id: minorVersionCharacteristicId))
-    .receive(on: .main)
-    .analysis(
-        onSuccess: { fullVersion in
-            print("Full version: \(fullVersion)")
-        },
-        onFailure: { error in
-            print("Error: \(error)")
-        }
-    )
+func readVersion() -> Promise<String, Error> {
+    readVersion(major: readBluetoothCharacteristic(id: majorVersionCharacteristicId),
+                minor: readBluetoothCharacteristic(id: minorVersionCharacteristicId))
+}
 
-//func firstTwoAlbums(artist: Artist) -> ArraySlice<Album> {
-//    return artist.albums.prefix(2)
-//}
-//
-//firstTwoAlbums(artist: ledZeppelin)
-//
-//func countSongsWithS(artist: Artist) -> Int {
-//    artist
-//        .albums
-//        .lazy
-//        .flatMap { $0.songs }
-//        .filter { $0.name.lowercased().hasPrefix("s") }
-//        .count
-//}
-//
-//countSongsWithS(artist: ledZeppelin)
+class ViewController: UIViewController {
+    private let label = UILabel(frame: .init(origin: .zero, size: .init(width: 200, height: 50)))
+    private var cancellables = CancellableGroup()
+
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        self.view.backgroundColor = .white
+        self.view.addSubview(label)
+
+        readVersion()
+            .receive(on: .main)
+            .catchError { error in Promise<String, Never>.create(success: "??.??") }
+            .bind(to: \.label.text, on: self)
+            .disposed(by: cancellables)
+    }
+}
+
+PlaygroundPage.current.liveView = ViewController()
 
 /*:
  [Previous](@previous) | [Next](@next)

@@ -4,6 +4,10 @@ import Foundation
 public let majorVersionCharacteristicId = "a"
 public let minorVersionCharacteristicId = "b"
 
+public struct ReadVersionError: Error {
+    public init() { }
+}
+
 public func readBluetoothCharacteristic(id: String) -> Promise<Data, Error> {
     if id == "a" {
         return .create(success: Data([0x30, 0x32]))
