@@ -3,29 +3,50 @@
 
  ### Focus on Data Structures
 
- Computational context (each is specialist in one, and only one, type of effect/context)
- A value representation of an action or effect, not the effect per se
+ Why?
+ - By isolating problems per data structure you have better abstractions
+ - Fewer and better tests, much more relevant and without mocking
+ - Avoids bugs, compile-time verifications
+ - Helps preventing race conditions and memory leaks
+ - Allows to reuse more code
 
- - Optional (sync disjunction, encodes one additional piece of information)
- - Result type (sync disjunction, encodes possible error)
- - Promises (async disjunction, encodes the async task)
- - Array (sync continuous disjunction, encodes the order and count)
- - Event Streams / Reactive (async continuous disjunction, encodes the subscription)
- - Effect (similar to Event Stream, general case for any side-effect)
- - Reader (encodes dependency injection)
- - Writer (encodes side-effects)
- - State (mutation)
+ How?
+ - Abstract ONE specific problem (or effect) per data structure
+ - Make it pure, composable and lazy
+ - Compose multiple data structures by wrapping one inside of another
+ - Execute the effect in isolation and under control
+ 
+ Examples:
 
+ - `Optional`
+ - `Result`
+ - `Array`
+ - `Promise`
+ - `Observable` / `Publisher` / `Signal` (Event Streams / Reactive)
+ - `Reader`
+ - `Effect`
+ - `Writer`
+ - `State`
+*/
+
+let optionalArray: Optional<Array<String>> // [String]?
+
+let arrayOfOptionals: Array<Optional<String>> // [String?]
+
+let promiseOrArray: Promise<[String], Error>
+
+let promiseOfArrayAfterInjectingDependencies: Reader<Dependencies, Promise<[String], Error>>
+
+/*:
  and their operators for composition:
- - map / contramap / bimap / dimap
- - flatMap
- - zip
- - traverse
- - reduce / fold / analysis
- - lift
- - higher-order operators
+ - `map` / `contramap` / `bimap` / `dimap`
+ - `flatMap`
+ - `zip`
+ - `traverse`
+ - `reduce` / `fold` / `analysis`
+ - `lift`
+ - and many more...
  */
-
 /*:
  [Previous](@previous) | [Topics](04%20-%20Topics) | [Next](@next)
  */

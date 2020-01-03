@@ -43,21 +43,6 @@ public prefix func ^ <Whole, Part>(keyPath: KeyPath<Whole, Part>) -> (Whole) -> 
     }
 }
 
-public func zip<A, B>(_ lhs: Result<A, Error>, _ rhs: Result<B, Error>) -> Result<(A, B), Error> {
-    do {
-        let a = try lhs.get()
-        let b = try rhs.get()
-        return .success((a, b))
-    } catch {
-        return .failure(error)
-    }
-}
-
-public func zip<A, B>(_ lhs: Optional<A>, _ rhs: Optional<B>) -> Optional<(A, B)> {
-    guard let lhs = lhs, let rhs = rhs else { return nil }
-    return (lhs, rhs)
-}
-
 extension Result {
     public func analysis(onSuccess: @escaping (Success) -> Void,
                          onFailure: @escaping (Failure) -> Void) {
@@ -75,4 +60,90 @@ extension Result {
         guard case let .failure(e) = self else { return nil }
         return e
     }
+}
+
+// ----
+// MARK: - ZIP
+// ----
+
+// Zip Result
+public func zip<A, B>(_ lhs: Result<A, Error>, _ rhs: Result<B, Error>) -> Result<(A, B), Error> {
+    do {
+        let a = try lhs.get()
+        let b = try rhs.get()
+        return .success((a, b))
+    } catch {
+        return .failure(error)
+    }
+}
+
+// Zip Optional
+public func zip<A, B>(_ a: A?, _ b: B?) -> (A, B)? {
+    guard let a = a, let b = b else { return nil }
+    return (a, b)
+}
+
+public func zip<A, B, C>(_ first: A?, _ second: B?, _ third: C?) -> (A, B, C)? { // swiftlint:disable:this large_tuple
+    return zip(first, zip(second, third)).map { sideA, sideBC in (sideA, sideBC.0, sideBC.1) }
+}
+
+public func zip<A, B, C, D>(_ first: A?, _ second: B?, _ third: C?, _ fourth: D?) -> (A, B, C, D)? { // swiftlint:disable:this large_tuple
+    return zip(first, zip(second, zip(third, fourth))).map { sideA, sideBCD in
+        let sideB = sideBCD.0
+        let sideCD = sideBCD.1
+        let sideC = sideCD.0
+        let sideD = sideCD.1
+
+        return (sideA, sideB, sideC, sideD)
+    }
+}
+
+// Zip Function
+public func zip<A, B>(_ a: @escaping () -> A, _ b: @escaping () -> B) -> () -> (A, B) {
+    return { (a(), b()) }
+}
+
+public func zip<A, B, C>(_ a: @escaping () -> A, _ b: @escaping () -> B, _ c: @escaping () -> C) -> () -> (A, B, C) {
+    return { (a(), b(), c()) }
+}
+
+public func zip<A, B, C, D>(_ a: @escaping () -> A, _ b: @escaping () -> B, _ c: @escaping () -> C, _ d: @escaping () -> D) -> () -> (A, B, C, D) {
+    return { (a(), b(), c(), d()) }
+}
+
+public func zip<A, B, C, D, E>(_ a: @escaping () -> A, _ b: @escaping () -> B, _ c: @escaping () -> C, _ d: @escaping () -> D, _ e: @escaping () -> E) -> () -> (A, B, C, D, E) {
+    return { (a(), b(), c(), d(), e()) }
+}
+
+public func zip<A, B>(_ tuple: (() -> A, () -> B)) -> () -> (A, B) {
+    return { (tuple.0(), tuple.1()) }
+}
+
+public func zip<A, B, C>(_ tuple: (() -> A, () -> B, () -> C)) -> () -> (A, B, C) {
+    return { (tuple.0(), tuple.1(), tuple.2()) }
+}
+
+public func zip<A, B, C, D>(_ tuple: (() -> A, () -> B, () -> C, () -> D)) -> () -> (A, B, C, D) {
+    return { (tuple.0(), tuple.1(), tuple.2(), tuple.3()) }
+}
+
+public func zip<A, B, C, D, E>(_ tuple: (() -> A, () -> B, () -> C, () -> D, () -> E)) -> () -> (A, B, C, D, E) {
+    return { (tuple.0(), tuple.1(), tuple.2(), tuple.3(), tuple.4()) }
+}
+
+// Product fold
+public func zip<A, B, Z>(_ a: @escaping (Z) -> A, _ b: @escaping (Z) -> B) -> (Z) -> (A, B) {
+    return { (a($0), b($0)) }
+}
+
+public func zip<A, B, C, Z>(_ a: @escaping (Z) -> A, _ b: @escaping (Z) -> B, _ c: @escaping (Z) -> C) -> (Z) -> (A, B, C) {
+    return { (a($0), b($0), c($0)) }
+}
+
+public func zip<A, B, C, D, Z>(_ a: @escaping (Z) -> A, _ b: @escaping (Z) -> B, _ c: @escaping (Z) -> C, _ d: @escaping (Z) -> D) -> (Z) -> (A, B, C, D) {
+    return { (a($0), b($0), c($0), d($0)) }
+}
+
+public func zip<A, B, C, D, E, Z>(_ a: @escaping (Z) -> A, _ b: @escaping (Z) -> B, _ c: @escaping (Z) -> C, _ d: @escaping (Z) -> D, _ e: @escaping (Z) -> E) -> (Z) -> (A, B, C, D, E) {
+    return { (a($0), b($0), c($0), d($0), e($0)) }
 }
