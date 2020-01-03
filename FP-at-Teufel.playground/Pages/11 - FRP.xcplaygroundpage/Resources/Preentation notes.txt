@@ -1,0 +1,12 @@
+Functional Reactive Programming is becoming more popular and now even Apple is investing and recommending that.
+Watching WWDC 2019 makes this very obvious and Combine is a powerful tool that, sooner or later will be fully integrated
+to Core Foundation and to the main platform frameworks, replacing delegates, KVOs, callbacks, notifications as the
+main pub/sub pattern.
+
+We already spoke a lot about data structures, so at this point it should be clear the reasons we need to invest on FRP:
+- To represent stream of events as values
+- Making it composable, testable, separation of declaration and execution, state consistency
+- Everything is a stream of events (user interactions, external actors, callbacks)
+
+How?
+- RxSwift, ReactiveSwift or Combine, learn one and you'll learn all.

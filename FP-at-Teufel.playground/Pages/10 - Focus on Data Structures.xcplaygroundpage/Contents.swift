@@ -15,7 +15,8 @@
  - Make it pure, composable and lazy
  - Compose multiple data structures by wrapping one inside of another
  - Execute the effect in isolation and under control
- 
+ - - -
+
  Examples:
 
  - `Optional`
