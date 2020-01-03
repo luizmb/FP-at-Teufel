@@ -1,17 +1,9 @@
-Tagged: A User ID that is a String, and an Invoice that is a String, could be mistakenly swapped. Use Tagged versions of those to avoid this problem:
+This is related to the previous topic, about using very strongly-typed programming style. When dealing with types that
+can be easily confused or switched, we can avoid these silly mistakes by wrapping these types in a proxy data structure.
 
-```
-struct User {
-    let id: Tagged<User, String>
-    let name: String
-}
+For example, when several model objects have a property called "id" with the type String, we can easily provide the
+wrong id in a call, which will cause runtime bugs.
 
-struct Invoice {
-    let id: Tagged<Invoice, String>
-    let date: Date
-}
-
-func getInvoice(id: Tagged<Invoice, String>) -> Invoice? {
-     // ...
-}
-```
+By wrapping the String in a Tagged structure, which is also generic over the model, will prevent that, as seen in this
+example. It's impossible to pass the User ID in a function that expects Invoice ID, and the compiler will help you to
+prevent that. Many other situations can benefit from the same technique.
