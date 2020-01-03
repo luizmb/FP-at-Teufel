@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<playground version='6.0' target-platform='ios' display-mode='raw'>
+<playground version='6.0' target-platform='ios' display-mode='rendered'>
     <pages>
         <page name='01 - Welcome'/>
         <page name='02 - What do we do?'/>
@@ -10,11 +10,11 @@
         <page name='07 - Composition'/>
         <page name='08 - Lazyness and Explicitness'/>
         <page name='09 - Declarative Syntax'/>
-        <page name='10 - Strongly-typed'/>
-        <page name='11 - Tagged'/>
-        <page name='12 - Optics'/>
-        <page name='13 - Algebraic Data Types'/>
-        <page name='14 - Focus on Data Structures'/>
+        <page name='10 - Focus on Data Structures'/>
+        <page name='11 - Strongly-typed'/>
+        <page name='12 - Tagged'/>
+        <page name='13 - Optics'/>
+        <page name='14 - Algebraic Data Types'/>
         <page name='15 - What&apos;s coming next?'/>
         <page name='16 - References'/>
     </pages>

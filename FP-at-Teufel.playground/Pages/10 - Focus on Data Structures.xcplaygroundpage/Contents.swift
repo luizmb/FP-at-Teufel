@@ -1,5 +1,5 @@
 /*:
- [Previous](@previous) | [Next](@next)
+ [Previous](@previous) | [Topics](04%20-%20Topics) | [Next](@next)
 
  ### Focus on Data Structures
 
@@ -27,5 +27,5 @@
  */
 
 /*:
- [Previous](@previous) | [Next](@next)
+ [Previous](@previous) | [Topics](04%20-%20Topics) | [Next](@next)
  */

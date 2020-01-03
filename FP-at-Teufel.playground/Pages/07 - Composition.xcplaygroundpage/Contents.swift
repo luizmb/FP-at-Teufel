@@ -1,5 +1,5 @@
 /*:
- [Previous](@previous) | [Next](@next)
+ [Previous](@previous) | [Topics](04%20-%20Topics) | [Next](@next)
 
  ### Composition
  Why?
@@ -64,5 +64,5 @@ let downloadAndInstallUsingFlatMap = { (url: URL) -> Promise<Void, Error> in
 
 downloadAndInstallUsingFlatMap(someURL)
 /*:
- [Previous](@previous) | [Next](@next)
+ [Previous](@previous) | [Topics](04%20-%20Topics) | [Next](@next)
  */

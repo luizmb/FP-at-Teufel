@@ -1,5 +1,5 @@
 /*:
- [Previous](@previous) | [Next](@next)
+ [Previous](@previous) | [Topics](04%20-%20Topics) | [Next](@next)
 
  ### Tagged
 
@@ -33,6 +33,6 @@ let user = User(id: Tagged<User, String>(rawValue: "9090"), name: "Teufel")
 // getInvoice(id: user.id) --> Fails in compile time
 
 /*:
- [Previous](@previous) | [Next](@next)
+ [Previous](@previous) | [Topics](04%20-%20Topics) | [Next](@next)
  */
 

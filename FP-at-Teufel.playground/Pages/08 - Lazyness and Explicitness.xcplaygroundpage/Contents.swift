@@ -1,5 +1,5 @@
 /*:
- [Previous](@previous) | [Next](@next)
+ [Previous](@previous) | [Topics](04%20-%20Topics) | [Next](@next)
 
  ### Lazyness and Explicitness
 
@@ -41,6 +41,6 @@ let cancellable = operation
 //: - important: in Combine, Future is __NOT__ lazy. Use always `Deferred<Future<HappyPath, UnhappyPath>>`
 
 /*:
- [Previous](@previous) | [Next](@next)
+ [Previous](@previous) | [Topics](04%20-%20Topics) | [Next](@next)
  */
 

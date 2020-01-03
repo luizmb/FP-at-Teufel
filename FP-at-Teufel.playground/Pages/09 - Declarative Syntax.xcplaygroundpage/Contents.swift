@@ -1,5 +1,5 @@
 /*:
- [Previous](@previous) | [Next](@next)
+ [Previous](@previous) | [Topics](04%20-%20Topics) | [Next](@next)
 
  ### Declarative syntax
 
@@ -55,5 +55,5 @@ class ViewController: UIViewController {
 PlaygroundPage.current.liveView = ViewController()
 
 /*:
- [Previous](@previous) | [Next](@next)
+ [Previous](@previous) | [Topics](04%20-%20Topics) | [Next](@next)
  */

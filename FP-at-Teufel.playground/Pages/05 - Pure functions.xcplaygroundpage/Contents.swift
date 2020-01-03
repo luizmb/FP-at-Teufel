@@ -1,5 +1,5 @@
 /*:
- [Previous](@previous) | [Next](@next)
+ [Previous](@previous) | [Topics](04%20-%20Topics) | [Next](@next)
 
  ### Pure functions
 
@@ -38,5 +38,5 @@ func addFavoriteAsync(repository: () -> Repository,
  - note: * Injecting dependencies and calling their effects inside the function is not strictly pure, but for our
            goals and in Swift this is good enough.
 
- [Previous](@previous) | [Next](@next)
+ [Previous](@previous) | [Topics](04%20-%20Topics) | [Next](@next)
  */
