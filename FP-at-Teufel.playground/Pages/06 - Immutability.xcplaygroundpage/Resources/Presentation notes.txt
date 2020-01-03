@@ -7,12 +7,6 @@ Prefer value types - structs or enums - over classes. Whenever possible, use `le
 calculating new object over using setters or assignment. That way, you don't reuse anything, also discard it and create
 a new one, so things are never still, but they are always moving.
 
-In real world apps we eventually need State and we need mutation. In that case, group as much state as you can and make
-all these parts to act as one, mutate as one, from a single function and under complete surveillance, this is your
-consistency checker.
-
-Even better if you have the state of your app in a single place, for the whole app, being mutated only by a single
-function that guarantees thread-safety and consistency.
-
-Make sure to distinguish between State and derived state, being the first one an unique piece of information and the
-second something that can be easily and cheapily calculated.
+Only one warning: always recreating objects may sometimes waste memory or bring perfomance drawbacks, and although Swift
+is really good in managing this kind of problems, you may want to be extra careful and eventually break this rule when
+working with large collections.

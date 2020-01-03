@@ -1,23 +1,16 @@
-Declarative syntax: is not only code style, it may start as such but evolves to a new way of thinking about your code as a set of rules instead of a list of steps. As you do that and force yourself to use only pure functions and composition, the rules will become consistent regardless of the order things happen. Changing from imperative to declarative is overwhelming, our minds are accustomed to follow recipes, instructions, linearly. But after some time this will become more natural and even easier than imperative.
+Declarative syntax: is not only code style, it may start as such but evolves to a new way of thinking about your code as
+a set of rules instead of a list of steps. As you do that and force yourself to use only pure functions, composition and
+lazyness, the rules will become consistent regardless of the order things happen. Also helps separating definition from
+execution.
 
-Effects as values — decoupling them from execution
+Changing from imperative to declarative is overwhelming, our minds are accustomed to follow recipes, instructions,
+linearly. But after some time this will become more natural and even easier than imperative.
 
-```
-zip(readBluetoothCharacteristic1, readBluetoothCharacteristic2)
-    .map { resultLeft, resultRight in
-        zip(resultLeft, resultRight)
-    }
-    . map { characteristicLeft, characteristicRight in
-        let versionMajorMaybe = String(data: characteristicLeft, using: .utf8)
-        let versionMinorMaybe = String(data: characteristicRight, using: .utf8)
-        zip(versionMajorMaybe, versionMinorMaybe).map { major, minor in "\(major)-\(minor)" }
-    }
-    .analysis(
-        onSuccess: { fullVersion in
-            print("Full version: \(fullVersion)")
-        },
-        onError: { error in
-            print("Error: \(error)")
-        }
-    )
-```
+As we use more declarative syntax, we start representing effects as values, decoupling them from execution.
+
+There's not much we can say about how to implement this, but it's important to:
+- learn composition of functions and data types
+- composition operators
+- avoid implicit state
+- experiment with DSL which is the full separation between declaration and execution. SwiftUI is a good example why this
+is good and powerful.
