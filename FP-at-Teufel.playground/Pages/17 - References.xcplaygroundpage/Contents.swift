@@ -1,5 +1,5 @@
 /*:
- [Previous](@previous) | [Next](@next)
+ [Previous](@previous)
 
  # Questions?
  - - -
@@ -59,5 +59,5 @@
     - [Dr. Tai-Danae Bradley • Math3ma](https://www.math3ma.com)
  */
 /*:
- [Previous](@previous) | [Next](@next)
+ [Previous](@previous)
  */
