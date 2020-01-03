@@ -24,8 +24,11 @@ extension Cat: Animal_ { }
 extension Dog: Animal_ { }
 
 func pet(animal: Animal_) {
-    if animal is Cat { }
-    if animal is Dog { }
+    if let cat = animal as? Cat {
+        notImplemented(cat)
+    } else if let dog = animal as? Dog {
+        notImplemented(dog)
+    }
 }
 
 // Use enums
@@ -36,8 +39,10 @@ enum Animal {
 
 func pet(animal: Animal) {
     switch animal {
-    case let .cat(cat): notImplemented()
-    case let .dog(dog): notImplemented()
+    case let .cat(cat): notImplemented(cat)
+    case let .dog(dog): notImplemented(dog)
+    // avoid using `default:`
+    // in case you want to ignore/handle one or more cases, list them explicitly
     }
 }
 /*:

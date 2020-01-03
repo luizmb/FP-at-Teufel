@@ -1,5 +1,5 @@
 import Foundation
 
-public func notImplemented() -> Never {
+public func notImplemented(_ ignoring: Any...) -> Never {
     fatalError()
 }
