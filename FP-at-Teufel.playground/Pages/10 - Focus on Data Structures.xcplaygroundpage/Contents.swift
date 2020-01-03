@@ -47,6 +47,10 @@ let promiseOfArrayAfterInjectingDependencies: Reader<Dependencies, Promise<[Stri
  - `reduce` / `fold` / `analysis`
  - `lift`
  - and many more...
+
+ ![Map](map.png)
+ ![Zip](zip.png)
+
  */
 /*:
  [Previous](@previous) | [Topics](04%20-%20Topics) | [Next](@next)

@@ -6,6 +6,7 @@
  
  
  # How Functional Programming has helped us
+ 𝝺  @ 👹
 
  &nbsp;
  &nbsp;
@@ -23,7 +24,7 @@
  _Xcode Playgrounds available at [https://github.com/luizmb/FP-at-Teufel](https://github.com/luizmb/FP-at-Teufel) *_
 
  - - -
- 
+
  ## Luiz R. M. Barbosa ###
  - Twitter: [@luizguitar](https://www.twitter.com/luizguitar)
  - GitHub: [luizmb](https://www.github.com/luizmb)

@@ -1,7 +1,7 @@
 /*:
  [Previous](@previous) | [Topics](04%20-%20Topics) | [Next](@next)
 
- ### (Very) Strongly-typed
+ ### (Very) Strongly-typed Programming Style
 
  Why?
  - Compile-time safety

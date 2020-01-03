@@ -27,6 +27,7 @@
     - [Point-free #42](https://www.pointfree.co/episodes/ep42-the-many-faces-of-flat-map-part-1)
     - [Point-free • Swift Overture library](https://github.com/pointfreeco/swift-overture)
     - [Jasdev Singh • Operator Etymology](https://jasdev.me/operators)
+    - [Swift Functors, Applicatives, and Monads in Pictures](https://www.mokacoding.com/blog/functor-applicative-monads-in-pictures/)
  - Lazyness and Explicitness
     - [Gary Bernhardt - Boundaries](https://www.destroyallsoftware.com/talks/boundaries)
     - [Gary Bernhardt - Functional Core, Imperative Shell](https://www.destroyallsoftware.com/screencasts/catalog/functional-core-imperative-shell)
@@ -53,6 +54,7 @@
     - [Brandon Williams • Few, but ripe](https://www.fewbutripe.com)
     - [Jasdev Singh](https://jasdev.me)
     - [Yasuhiro Inami](https://speakerdeck.com/inamiy)
+    - [Your easy guide to Monads, Applicatives, & Functors](https://medium.com/@lettier/your-easy-guide-to-monads-applicatives-functors-862048d61610)
     - [Dr. Bartosz Milewski • Category Theory](https://www.youtube.com/user/DrBartosz/playlists)
     - [Dr. Tai-Danae Bradley • Math3ma](https://www.math3ma.com)
  */

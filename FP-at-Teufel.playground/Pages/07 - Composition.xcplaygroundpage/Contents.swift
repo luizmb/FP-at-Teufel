@@ -18,6 +18,8 @@
  `(A) -> B >>> (B) -> C`    __ALWAYS*__ succeeds as    `(A) -> C`
 
  _\* for pure functions_
+
+ ![Composition](functor.png)
  */
  import Foundation
 /*:
@@ -35,7 +37,7 @@ squareRootAndStringify(4)
 let squareRootAndStringifyOther = sqrt >>> stringify
 squareRootAndStringifyOther(25)
 /*:
----
+- - -
 */
 let downloadAndInstall = compose(download, install)
 
@@ -64,5 +66,7 @@ let downloadAndInstallUsingFlatMap = { (url: URL) -> Promise<Void, Error> in
 
 downloadAndInstallUsingFlatMap(someURL)
 /*:
+ ![Monad](monad.mp4 width="900" height="506")
+
  [Previous](@previous) | [Topics](04%20-%20Topics) | [Next](@next)
  */
