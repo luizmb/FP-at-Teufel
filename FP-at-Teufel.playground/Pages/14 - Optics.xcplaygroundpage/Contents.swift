@@ -3,16 +3,21 @@
 
  ### Optics
 
- Traverse object tree should be easy, and keypath does a very good job helping that. Swift 5.2 is expected to allow us to use keypath in some higher-order-functions, like map, so KeyPath<Root, Value> translates automatically to (Root) -> Value. With a custom operator you can have this today, and it's helpful. But more than that, enums should have keypaths too, with the cases or associated types accessed via keypath. This can be easily done with code generators and makes code much nicer and smaller, avoiding switch/case and, in the process, avoiding bugs as well.
+ Why?
+ - Functional getters and setters allow better composition and chaining
+ - Structs have KeyPath but Enums lack this feature by default
+ - Traverse trees easily
 
- Control flow as values—decoupling the actions taken on them
+ How?
+ - For Enums, use code-generation to synthesize properties (+ KeyPath for free)
+ - Use lift operator (`^`) to allow KeyPath being used as function (while [SE-0249](https://github.com/apple/swift-evolution/blob/master/proposals/0249-key-path-literal-function-expressions.md) is not released)
+ - - -
  */
-
 import Foundation
 
 userList
 let admins = userList
-    .filter(^\.isAdmin)
+    .filter(^\User.role.admin.isNotNil)
     .map(^\.name)
 
 let songs = fetchArtist(id: 3)?
@@ -21,7 +26,6 @@ let songs = fetchArtist(id: 3)?
 
 let requestsErrorsOnlyB = severalRequests()
     .compactMap(^\.error)
-
 /*:
  [Previous](@previous) | [Topics](04%20-%20Topics) | [Next](@next)
  */

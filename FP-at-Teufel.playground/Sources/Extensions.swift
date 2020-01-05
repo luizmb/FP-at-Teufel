@@ -62,6 +62,18 @@ extension Result {
     }
 }
 
+extension Optional {
+    public var isNotNil: Bool {
+        if case .some = self { return true }
+        return false
+    }
+
+    public var isNil: Bool {
+        if case .none = self { return true }
+        return false
+    }
+}
+
 // ----
 // MARK: - ZIP
 // ----

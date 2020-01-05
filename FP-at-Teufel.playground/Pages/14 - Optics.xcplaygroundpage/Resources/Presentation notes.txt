@@ -1,9 +1,14 @@
-Optics: traverse object tree should be easy, and keypath does a very good job helping that. Swift 5.2 is expected to allow us to use keypath in some higher-order-functions, like map, so KeyPath<Root, Value> translates automatically to (Root) -> Value. With a custom operator you can have this today, and it's helpful. But more than that, enums should have keypaths too, with the cases or associated types accessed via keypath. This can be easily done with code generators and makes code much nicer and smaller, avoiding switch/case and, in the process, avoiding bugs as well.
+Optics is a very broad and amazing topic. We're currently using basic ideas such as keyPath as functions and enum properties (prism) to simplify
+the syntax. The main advantage of using optics is thinking about getters and setters as functions that traverse a root structure to a property,
+allowing either retrieving its value or setting a new value and return the modified structure.
 
-```
-let admins = userList.map(^\.isAdmin)
-let songs = fetchArtist(id: 2).map(^\.albums.songs)
-let requestsErrorsOnly = severalRequests().compactMap(^\.error?.localizedError)
-```
+When traversing complex object trees this is very useful!
 
-Control flow as values—decoupling the actions taken on them
+About keyPaths as functions, Swift 5.2 is expected to bring this feature natively (SE-0249), but in meantime it's very easy to create a custom
+operator to implement this behaviour.
+
+This is very powerful for structs, but unfortunately Swift doesn't synthesize keyPaths for Enums, but it's not so hard through code-generation to
+create properties out of enum cases, and the compiler will then provide keyPaths for each property.
+
+The Sourcery template we use can be downloaded from here:
+https://github.com/luizmb/DogProfiler/blob/master/DogProfiler/Sourcery/Prism.generated.swift
