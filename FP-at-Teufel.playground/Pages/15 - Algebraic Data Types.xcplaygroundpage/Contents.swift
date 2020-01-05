@@ -3,19 +3,27 @@
 
  ### Algebraic Data Type
 
+ Why?
+ - Understanding Swift types from Algebra perspective helps finding the best type for each scenario
+ - Avoids "impossible state" by using the correct algebraic types
 
- This is a very long topic and there are lots of good talks you can find on the web about this. It's not super practical but it helps you to think about Swift types in a very different way, and as conclusion choosing better between structs and enums, or understanding better Void and Never, impossible functions and also composition.
-
+ How?
+ - We recommend checking the referenced material in the last page
+ - - -
  ```
  Never = 0
  Void = 1
  Bool = 2
- struct/tuples = *
- enum = +
- function = ^
- Optional = Type + 1
- Curry: (A, B) -> C == (A) -> (B) -> C  because  C ^ (A * B) == C ^ B ^ A
+ String = infinite
+ struct/tuples = product (*)
+ enum = sum (+)
+ function = power (^)
  ```
+ Interesting facts:
+ * `Optional = Type T + 1`
+ * Curry: `(A, B) -> C == (A) -> (B) -> C` &nbsp; because &nbsp; `C ^ (A * B) == C ^ B ^ A`
+ * `(Data?, Error?)` allows impossible states such as both nil or both non-nil. `(Data + 1) * (Error + 1)`
+ * `Result<Data, Error>` represents better this model. `Data + Error`
  */
 
 /*:
