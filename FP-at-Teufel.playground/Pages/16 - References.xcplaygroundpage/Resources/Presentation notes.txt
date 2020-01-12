@@ -1,1 +1,21 @@
+Conclusion
 
+I think that's it for today.
+
+We've been successfully adopting all these techniques and we're very happy with the results, compared to our legacy code we have a much more stable runtime, better tests, less maintenance.
+
+For the new apps we're using even more advanced techniques, like an architecture that enforces the isolation of side-effects while keeping most of the app completely pure. Those apps are written using using SwiftUI and Combine, which also really helps to achieve this goal.
+
+If we can write 80% to 90% of an app using composition of lazy pure functions, we can reach 90% of code coverage without a single mock, and we can spend more time taking care of the 10% dangerous part.
+
+These data structures are very powerful, and they become even more powerful as we add more functionality there, instead of writing ad-hoc code. With that, we can reuse the same solution for different modules of our app, and even among different apps.
+
+Unfortunately we won't have time to cover all the topics, some are a bit more advanced, so if you believe FP can be beneficial for your project, I invite you to download this Playground and check the code.
+
+I'm also linking several references here, per topic. When studying Functional Programming sometimes we face some very theoretical stuff about Math, I tried to link material that is more friendly, but also separated some advanced talks for those that want to continue learning about the theoretical foundations.
+
+Also feel free to contact me either for discussing these topics or sharing how you're using FP in your projects. Twitter is the best way to contact me.
+
+I don't know if we have time for questions now but I'll be here the rest of the event.
+
+Thanks!
