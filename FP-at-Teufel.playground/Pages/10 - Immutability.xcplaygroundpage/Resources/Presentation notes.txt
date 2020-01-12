@@ -1,0 +1,5 @@
+Embrace immutability. It allows us to run code in isolation and confidence that nothing else is affected by this code, it also allows us to avoid concurrency problems and race conditions. Using value types also helps preventing memory leaks. Finally, when data is immutable we stop wanting to store this state as a source-of-truth, instead, we want to keep this information in a constant flow of transformation.
+
+Prefer value types - structs or enums - over classes. Whenever possible, use `let` instead of `var`. And also prefer calculating new object over using setters or assignment. That way, you don't reuse anything, also discard it and create a new one, so things are never still, but they are always moving.
+
+Only one warning: always recreating objects may sometimes waste memory or bring perfomance drawbacks, and although Swift is really good in managing this kind of problems, you may want to be extra careful and eventually break this rule when working with large collections.

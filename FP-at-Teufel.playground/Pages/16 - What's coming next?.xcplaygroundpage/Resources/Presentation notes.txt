@@ -1,4 +1,0 @@
-We are looking forward to replace our structures with Combine counterparts and because Apple decided to follow FP practices, some typealias and extensions will basically allows us to convert the whole app in a couple of hours.
-
-Also, we are implementing in new apps a full Functional Programming architecture that makes your whole app becomes a single pure function going from user actions and current state, to new state. It's only one function, but at the same time is a composition of several small pure functions. The side-effects run in the corner, in a very isolated way. This architecture fits SwiftUI very well. But this is a topic too big for this talk.
-

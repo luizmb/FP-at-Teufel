@@ -1,56 +1,28 @@
-We know that all apps have unique challenges, and some other in common. So we'll share some of the ones we face everyday
-at Teufel and how we managed to overcome them through functional programming.
+The development of our apps presents some unique challenges and some more familiar, and we'd like to share how we managed to overcome them through functional programming.
 
 - Async programming
-Every iOS app has to deal with async programming. In our case, in several situations we have to coordinate multiple
-requests, in series or in parallel, and either act when the whole chain completes or when the fastest remote machine
-responds, or after all machines have responded.
+We control multiple speakers in the network at the same time, and sometimes we want to group these requests, either in series or in parallel, treat errors for all possible combinations of responses, avoid race conditions and to notify the progress to multiple interested parts.
 
-We have to treat errors for all possible combinations of those branches and be careful about race conditions.
-
-Sometimes multiple parts are interested in the completion or progress of those operations, and sometimes the
-notification from remote devices is continuous, like volume changes while the user is rotating the knob.
-
-Callbacks, semaphores, dispatch groups and OperationQueue all can solve those problems, but they're ad-hoc solutions,
-that have to be reimplement over and over again, to have tests written over and over again and to have bugs fixed over
-and over again. And not always it's easy to get it right. Also, not all these solutions always provide a type-safe or
-thread-safe tool.
-
-The memory management also has to be studied for every case. Testing is not always pleasant.
-
+Callbacks, semaphores, dispatch groups and OperationQueue are designed to handle those problems, but they're ad-hoc solutions that have to be reimplemented, tested and to have bugs fixed over and over again. And it's not always easy to get it right, so many things can go wrong such as memory management, race conditions and performance issues.
 
 - Realtime sync with remote source of truth
-Our state has to be in sync with the speakers all the time, as fast as possible. Multiple phones and tables can be
-connected to the same speakers changing volume or songs. Users can use physical buttons on the speakers to change volume
-or start playback. The app state is also changing and must be resilient to sync all this data all the time, and normally
-the truth is the remote data from the speakers, except when users are touching the screen because in that case we ignore
-the speaker for some time and we are now in control. Once the user stops the gestures, we still have some latency time
-to deal with, around 2 seconds the roundtrip while we are still getting outdated values.
+Our state has to be in sync with the speakers all the time, as fast as possible. Multiple phones and tables can be connected to the same speakers controlling songs and volume. Users can use physical buttons on the speakers to change volume or start playback. The app must be resilient to sync all this data all the time and resolve possible state conflicts.
 
-So some throttling, some debouncing, dependending on each case.
+We heavily rely on throttling and debouncing for some parts.
 
+- Multiple communication protocols
+We use many different communication protocols, in different flavours, some subscribed via delegates, some via closure, some of them we have to re-subscribe every time we get a new value. Some are bidirectional.
 
-- Multiple network protocols
- We use many network protocols, in different flavours, some subscribed via delegates, some via closure, some of them we
- have to re-subscribe every time we get a new value. Coordinating these variety of messages can be a nightmare if we
- start introducing booleans everywhere to control what we got and what we're still waiting for.
-
+We should never introduce booleans and other variables to control the flow, this usually leads to inconsistent state, race conditions, and other bugs.
 
 - Modularity / Reuse code in multiple apps
-We want to reuse code as much as we can inside the same project, and as much as we can among different projects. OOP
-abstractions not always match this requirement, sometimes they are very business-oriented or introduce a plenty of
-dependencies that make easier to copy-and-paste code than packaging in a reusable framework. Of course, it's possible to
-plan your app with the correct OOP abstractions and still do all this stuff, but together with FP abstractions this
-becomes even more powerful. The good thing about FP abstractions is that they focus on infrastructure problems, really
-fundamental questions. Some FP abstractions are mathematical abstractions, that are used by things totally unrelated to
-software development like chemistry, statistics, classic and quantum physics, biology and others. When applied to CS,
-they don't care about the platform or type of app you're writing, or business logic.
+We want to reuse code as much as we can inside the same project, and as much as we can among different projects. Most of these projects have completely different business requirements, technology and communication protocols.
 
+FP abstractions are perfect for that.
 
 - Testability
-We want test everything and easily. At the same time we want less code to be tested, so avoiding ad-hoc solutions by
-centralising fundamental problems in data-structures makes you test them only once.
+We want test everything and easily.
 
-We can compose these data-structures in multiple different ways, and we have to test the composition, because they are
-ruled by axioms and expected to simply work. You test these axioms once, in the library, and that's all, from there, you
-can compose as much as you want and all you have to test are the individual units.
+If testing requires a lot of ceremony, developers won't write tests, that's the truth.
+
+At the same time we want less code to be tested, so avoiding ad-hoc solutions by centralising fundamental problems in data-structures makes you test them only once.

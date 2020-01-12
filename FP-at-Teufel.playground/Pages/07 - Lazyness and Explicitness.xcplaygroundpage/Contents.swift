@@ -18,7 +18,8 @@
  */
 import Foundation
 
-// EFFECT OR SIDE-EFFECT???
+// FUNCTIONAL CORE
+
 func downloadAndInstall(url: URL, folder: URL) -> Promise<Void, Error> {
     let promise = download(url: url).flatMap { file in
         install(file: file, to: folder)
@@ -31,14 +32,21 @@ func downloadAndInstall(url: URL, folder: URL) -> Promise<Void, Error> {
 // in another part of the app
 let operation = downloadAndInstall(url: someURL, folder: folderUrl)
 
-// still haven't ran
+// still has't ran
+
+//: - - -
+// IMPERATIVE SHELL
+
 let cancellable = operation
     .run { result in
         // WE FINALLY RUN!! IT'S OBVIOUS THAT EFFECTS HAVE BEEN STARTED!
         print(result)
     }
 
-//: - important: in Combine, Future is __NOT__ lazy. Use always `Deferred<Future<HappyPath, UnhappyPath>>`
+//: - important: in Combine, Future is __NOT__ lazy. Use always:
+//: ```
+//: typealias Promise<HappyPath, UnhappyPath> = Deferred<Future<HappyPath, UnhappyPath>>
+//: ````
 
 /*:
  [Previous](@previous) | [Topics](04%20-%20Topics) | [Next](@next)

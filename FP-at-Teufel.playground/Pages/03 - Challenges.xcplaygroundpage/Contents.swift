@@ -14,7 +14,7 @@
 
  􀝎 __Realtime sync with remote source of truth__
 
- 􀘲 __Multiple network protocols__
+ 􀘲 __Multiple communication protocols__
 
  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;- _REST_
 
@@ -25,6 +25,8 @@
  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;- _Long-polling_
 
  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;- _Discovery (Bonjour, SSDP, Web discovery)_
+
+ &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;- _Bluetooth Low Energy_
 
  􀐛 __Modularity / Reuse code in multiple apps__
 

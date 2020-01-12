@@ -1,35 +1,29 @@
-That is the most obvious FP trait. When you work with a legacy code and want to slowly port it toward a more FP way,
-this is definitely the starting point. Grab your functions one by one and extract all the side-effects.
+Pure functions
 
-Side-effects are not only mutation in global scope, also reading from global scope is a side-effect. For example, Date()
-is an implicit side-effect, which builds something completely different every call. Same for random numbers. Also
-threading.
+When you work in a legacy code and want to slowly adopt FP, this is the starting point. Grab your functions one by one and extract all the side-effects.
+
+Side-effects are not only mutation in global scope, also reading from global scope is a side-effect.
+
+To make a function pure:
+- it must use only the input parameters to calculate the output,
+- it should always return same output for some given input,
+- and nothing beyond the output should happen, like
+    - file system access,
+    - networking or
+    - threading.
 
 You want to do this before anything else because most of the other topics depend on pure functions.
 
-An exercise is to make a function static or free in the global scope, so you assert they don't read or write from its
-object fields. Be extra careful with inits and singletons, such as Date, Calendar, Locale, URLSession, or any
-initialization actually, only other pure structs and calls should be allowed. Injecting dependencies from outside is not
-strictly pure, but in Swift and for our goals this is good enough, so let's assume for now that this is still pure,
-although there are better ways to handle services.
+An exercise is to make a function static, so you assert they don't read or write from its object fields. Be extra careful with Date, Calendar, Locale, URLSession, random numbers or any initialization actually.
 
-Last but not least, functions that take no arguments, or functions that return Void should immediately raise a red flag
-in your Functional Programming mind. Pure functions usually take parameters, calculate something and returns the
-transformed value. If they take no argument, they might be reading from the global state, or if they return Void they're
-very likely running side-effects.
+Functions that return Void are very likely running side-effects, and functions that take no arguments could be potentially reading from the global scope, be careful with those.
 
-Here we have some examples of functions that have their dependencies injected from outside, and their return type is
-very honest about the happy and unhappy paths: Result of either Favorite or Error.
+Here we have a function that has its dependencies injected from outside, and their return type is very honest about the happy and unhappy paths: Result of either Favorite or Error.
 
-Even if they use repository or Date construction, as long as these calls are pure from the injected dependencies, your
-function can also be considered pure.
+Injecting dependencies from outside is not strictly pure, but in Swift and for our goals this is good enough, so let's assume for now that this is still pure, although there are better ways to handle services.
 
-The async version of it has very similar signature but it returns Promise of either Favorite or Error, very similar
-data type to represent a failable and async operation.
+The async version of it has very similar signature but it returns Promise of either Favorite or Error, very similar data type to represent a failable and async operation.
 
 We will speak more about these data types later.
 
-Pure functions are the building block of FP code, and they are composable, highly testable and thread-safe. An app with
-only pure functions would overcome all the challenges mentioned earlier, but it would be an app unable to perform any
-meaningful work. That means we can't avoid unpure functions, but we can push them to the boundaries of an app and keep
-them under control and isolation.
+Pure functions are the building block of FP code, and they are composable, highly testable and thread-safe. An app with only pure functions would overcome all the challenges mentioned earlier, but it would be an app unable to perform any meaningful work. That means we can't avoid impure functions, but we can push them to the boundaries of an app and keep them under control and isolation.

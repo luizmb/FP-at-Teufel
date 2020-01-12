@@ -1,3 +1,11 @@
 How Functional Programming has helped us
 
 We'll be talking about how functional programming has helped us to develop better apps at Lautsprecher Teufel.
+
+This Xcode Playground is already available for download and the link was posted in the meetup group.
+
+For each playground page you'll find in the Resources folder my presentation notes, for the topics I'll cover and also for the topics that I won't have time to go through tonight.
+
+So please check that if you're interested in this topic.
+
+So let's start.

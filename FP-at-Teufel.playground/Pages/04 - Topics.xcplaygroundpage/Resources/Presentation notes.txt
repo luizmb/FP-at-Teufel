@@ -1,21 +1,13 @@
 And how FP can help?
 
-Here we have a list with some of the main topics that have helped us to accomplish our goals. It's not a comprehensive
-list, but it's what we've been using successfully so far, for the last 2 years.
+Here we have a list with some of the main topics that have helped us to accomplish our goals. It's not a comprehensive list, but it's what we've been using successfully so far, for the last 2 years.
 
 We've started slow, applying some of these techniques in our app as we were learning about them and creating intuitivity.
 
-It's not something from day to night, and we have to understand and respect that, because FP can be very overwhelming for
-most of us, that come from other backgrounds, and frustration won't help us to learn FP or solve real life problems.
+It's not something from day to night, and we have to understand and respect that, because FP can be very overwhelming for most of us that come from other backgrounds, and frustration won't help us to learn FP or solve real life problems.
 
-So, start slow, with the simple topics as you gain more confidence and learn more advanced topics. It's not all or
-nothing, you can gradually benefit from it and it was precisely what we've been doing. I'm pretty sure that one year
-from now, this list will be longer and our goals will be bolder.
+So, start slow, with the simple topics as you gain more confidence and learn more advanced topics. It's not all or nothing, you can gradually benefit from it and it was precisely what we've been doing.
 
-We also didn't invent any of those things, people very smart, from Computer Science or not, invented (or mathematically
-discovered) them and we only learn them as useful and powerful tools they are.
-
-We won't have time to go through all of them tonight, but this Xcode Playground is already available for you to download
-and includes resources with Presentation notes for each playground page, even those that won't be seen in details tonight.
+We won't have time to go through all of them tonight, but this Xcode Playground is already available for you to download and includes resources with Presentation notes for each playground page, even those that won't be seen in details tonight.
 
 So let's start, shall we?

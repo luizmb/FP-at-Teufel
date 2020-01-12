@@ -1,0 +1,20 @@
+We've already spoken a lot about Promises, but there are many other useful Data Structures. They allow us to represent effects or problems as values, by creating a computational context that can be expressed as a Swift type and composed (purely) in bigger structures, separating the "logic and declaration" from the execution. Allowing then, safer programs.
+
+These data structures are small and very specialised containers that are created to solve one, and only one problem. If we have two problems, we can compose two data structures together.
+
+Swift gives us some of these structures, like:
+- Optional: focused in solving "nullability", something that crashes Java apps but in Swift is evaluated in compile-time, not runtime, thanks to this data structure
+- Result: focused on error handling, or a better definition would be focused on representing different paths a function may take
+- Array: focused on collections
+
+- We can have data structures for solving asynchronous tasks, like Promises, for example
+- Or continuous stream of events, the pub/sub problem, as Reactive frameworks do
+- Or dependency injection, which is possible thanks to the Reader data structure.
+
+Again, only one problem per data structure, if you need more, you can wrap any of these types inside of another, the same way you can have
+- an optional array, which is a collection that you may or may not have
+- or an array of optionals, which is a collection with elements that can be there or not
+- you can also have a promise of arrays, an async task that gives in the future a list of strings
+- or in a more complex example, something that once you inject dependencies, will give you a promise of array
+
+These data-structures offer some useful composition operators, such as these. It's easy to understand what these operators do with Arrays. Use your intuition to think what they would mean for the other data structures we mentioned before. This is a very good homework for you today.

@@ -1,0 +1,29 @@
+Lazyness and Explicitness about effects:
+
+It's important to be very explicit when a side-effect runs. We should never implicitly start a side-effect in a function, so when you create, for example, a Promise, be sure the framework you use is not starting the Promise. It should have a method .run or .call that effectively starts the effect, never before that, otherwise the function is no longer pure.
+
+Creating a value that represents a side-effect, is not a side-effect, so we can safely do that in a function, as long as we don't start the execution.
+
+That's why we want to postpone side-effects as much as we can, first gathering all you need from different layers of the app, and once you have everything you need, and you're in correct layer, you start the effect.
+
+What does it mean "the correct layer"?
+
+There's a design pattern called "functional core, imperative shell" which suggests that our core should be totally free of running effects, everything completely lazy and pure, only composing everything into a single type, which is a value representing the whole effect chain, and both the happy and unhappy paths. By representing effects as values, we can compose them without ever running, so you only compose while pushing this value to the boundaries of your system.
+
+Then, on the boundaries of the system, we have a single place where effects are allowed, and this place is our "imperative shell", which is responsible for executing the whole use case. Separating declaration from execution is a very powerful strategy.
+
+I'll link some talks about Functional Core, Imperative Shell.
+
+In this example, we have a function downloadAndInstall that takes two arguments, download URL and destination folder, and it returns a Promise of Void, which represents the effect.
+
+This function is pure if the Promise is lazy and we don't run it, and in the implementation it's possible to see that we compose download and install using flatMap, and return the promise, but we don't call or run the Promise.
+
+Next line we provide the input parameters to the function, running it and getting back the promise operation, but even here this operation doesn't start, so no side-effects so far. We will continue composing and pushing this code to the imperative shell.
+
+But at this point, in the imperative shell, we call "run" and we know that something potentially "dangerous" is about to happen.
+
+Our first Promise library had 3 lines of code: a struct wrapping a callback function in a property. In this playground you can find this implementation.
+
+If you use other Promises libraries, please be sure that it's lazy, so it needs an explicit command to start the side-effect, unfortunately most of them are eager.
+
+If you use Combine, be careful that Future is not lazy. Use always `Deferred<Future<HappyPath, UnhappyPath>>` instead to make it lazy.
