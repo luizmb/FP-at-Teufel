@@ -2,7 +2,7 @@ And how FP can help?
 
 Here we have a list with some of the main topics that have helped us to accomplish our goals. It's not a comprehensive list, but it's what we've been using successfully so far, for the last 2 years.
 
-We've started slow, applying some of these techniques in our app as we were learning about them and creating intuitivity.
+We've started slow, applying some of these techniques in our app as we were learning about them and creating intuition.
 
 It's not something from day to night, and we have to understand and respect that, because FP can be very overwhelming for most of us that come from other backgrounds, and frustration won't help us to learn FP or solve real life problems.
 
