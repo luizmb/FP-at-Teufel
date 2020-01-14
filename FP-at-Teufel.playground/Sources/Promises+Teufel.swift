@@ -188,6 +188,8 @@ public protocol Cancellable {
     func cancel()
 }
 
+extension URLSessionDataTask: Cancellable { }
+
 public class CancellableGroup: Cancellable {
     private var cancellables: [Cancellable] = []
     private(set) var isCancelled = false

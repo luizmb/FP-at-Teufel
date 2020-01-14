@@ -38,6 +38,25 @@ let promiseOrArray: Promise<[String], Error>
 
 let promiseOfArrayAfterInjectingDependencies: Reader<Dependencies, Promise<[String], Error>>
 
+//
+import Foundation
+func request(url: URL) -> Reader<URLSession, Promise<Data, Error>> {
+    Reader { urlSession in
+        Promise { callback in
+            let cancellable = urlSession.dataTask(with: url) { data, _, error in
+                if let error = error {
+                    callback(.failure(error))
+                    return
+                }
+
+                callback(.success(data!))
+            }
+            cancellable.resume()
+            return cancellable
+        }
+    }
+}
+//: - - -
 /*:
  and their operators for composition:
  - `map` / `contramap` / `bimap` / `dimap`

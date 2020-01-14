@@ -2,11 +2,10 @@
  [Next](@next)
  
  
- ### Meetup Name
+ ### CocoaHeads January 2020
  
  
  # How Functional Programming has helped us
- 𝝺  @ 👹
 
  &nbsp;
  &nbsp;
@@ -25,15 +24,10 @@
 
  - - -
 
- ## Luiz R. M. Barbosa ###
+ ## Luiz R. M. Barbosa :: 𝝺  @ 👹 ###
  - Twitter: [@luizguitar](https://www.twitter.com/luizguitar)
  - GitHub: [luizmb](https://www.github.com/luizmb)
  
- 
- ## Thomas Mellenthin ###
- - Twitter: [@dysternis](https://www.twitter.com/dysternis)
- - GitHub: [melle](https://www.github.com/melle)
-
  - - -
 
  - note: * *please also check the Resources folder for each playground page, where you will find the presentation notes*

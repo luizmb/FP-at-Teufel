@@ -19,6 +19,35 @@
  */
 import Foundation
 
+// NOT PURE:
+
+class Examples {
+    var hello: String = "hello"
+
+    // Reading from global scope
+    func greetings(name: String) -> String {
+        return name + " " + hello
+    }
+
+    // Writing to the global scope
+    func fixHello() {              // <-- Returning Void, it's very
+        hello = "Hello, "          //     likely performing side-effects
+    }
+
+    // Executions won't have equal result across calls
+    func sayTime(name: String) -> String {
+        return "Hi, \(name), it's \(Date())"
+    }
+
+    // Performing side-effect
+    func sayHi(name: String) -> String {
+        UserDefaults.standard.set(Date(), forKey: "last-hello")
+        return "Hi, \(name)"
+    }
+}
+//: - - -
+// A BIT MORE PURE:
+
 func addFavorite(repository: () -> Repository,
                  now: () -> Date,
                  favorite: Favorite)
@@ -26,7 +55,7 @@ func addFavorite(repository: () -> Repository,
     // ... Implementation
     notImplemented()
 }
-//: - - -
+
 func addFavoriteAsync(repository: () -> Repository,
                       now: () -> Date,
                       favorite: Favorite)
@@ -34,6 +63,25 @@ func addFavoriteAsync(repository: () -> Repository,
     // ... Implementation
     notImplemented()
 }
+//: - - -
+// PURE FUNCTIONS:
+
+func addFavoritePure(favorite: Favorite)
+-> Reader<(Repository, () -> Date), Result<Favorite, Error>> {
+    // ... Implementation
+    return Reader { depedencies in
+        notImplemented()
+    }
+}
+
+func addFavoritePureAsync(favorite: Favorite)
+-> Reader<(Repository, () -> Date), Promise<Favorite, Error>> {
+    // ... Implementation
+    return Reader { depedencies in
+        notImplemented()
+    }
+}
+
 /*:
  - note: * Injecting dependencies and calling their effects inside the function is not strictly pure, but for our
            goals and in Swift this is good enough.
