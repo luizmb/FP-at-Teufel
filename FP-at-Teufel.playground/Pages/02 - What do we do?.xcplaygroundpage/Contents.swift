@@ -3,7 +3,7 @@
 
  ## What do we do?
 
- * Smart Loudspeaker, Bluetooth speakers, headphones, TV soundbards and home cinema devices
+ * Smart Loudspeaker, Bluetooth speakers, headphones, TV soundbars and home cinema devices
  * Consumer audio products
  * Apps to remote control those devices
      - Browsing online music services
